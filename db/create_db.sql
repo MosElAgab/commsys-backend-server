@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS commsys;
+CREATE DATABASE commsys;
