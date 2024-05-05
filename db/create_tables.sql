@@ -1,3 +1,5 @@
+\c commsys
+
 -- design
 DROP TABLE IF EXISTS design;
 CREATE TABLE design (
