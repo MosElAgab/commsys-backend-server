@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from app.connection import DatabaseConnector
+from app.db import DatabaseConnector
 from flask_restful import Resource
 
 class Design(Resource):
@@ -12,16 +12,6 @@ class Design(Resource):
         cur.close()
         conn.close()
         return jsonify(row)
-    
-    # def get(self):
-    #     db = DatabaseConnector()
-    #     conn = db.conn()
-    #     cur = conn.cursor()
-    #     cur.execute("SELECT * FROM design;")
-    #     rows = cur.fetchall()
-    #     cur.close()
-    #     conn.close()
-    #     return jsonify(rows)
 
     def post(self):
         data = request.get_json()
