@@ -23,4 +23,3 @@ class db():
             cur.close()
             conn.commit()
             conn.close()
-    

@@ -23,7 +23,7 @@ class Design(db):
         desing = cur.fetchall()
         cur.close()
         conn.close()
-        return desing
+        return desing[0]
     
 
     def add_new_design(self, new_design):
@@ -42,4 +42,4 @@ class Design(db):
         conn.commit()
         cur.close()
         conn.close()
-        return added_design
+        return added_design[0]
