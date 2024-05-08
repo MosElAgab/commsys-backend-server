@@ -1,19 +1,22 @@
-from flask import request
+from flask import request, jsonify
 from app.model import Design
 
 
 
 def get_designs():
     model = Design()
-    return model.fetch_all_design(), 200
+    res_data = jsonify(model.fetch_all_design())
+    return res_data, 200
 
 
 def get_design_by_id(id):
     model = Design()
-    return model.get_design_by_id(id), 200
+    res_data = jsonify(model.get_design_by_id(id))
+    return res_data, 200
 
 
 def add_new_design():
     model = Design()
-    data = request.get_json()
-    return model.add_new_design(data)
+    req_data = request.get_json()
+    res_data = jsonify(model.add_new_design(req_data))
+    return res_data

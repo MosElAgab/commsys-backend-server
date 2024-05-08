@@ -13,6 +13,14 @@ class db():
         password = self.password
         )
         return conn
+
     
-    def hi(self):
-        return 'hi'
+    def seed_test_db(self):
+        with open('./db/test_db/seed_test_db.sql', 'r') as f:
+            conn = self.connect()
+            cur = conn.cursor()
+            cur.execute(f.read())
+            cur.close()
+            conn.commit()
+            conn.close()
+    

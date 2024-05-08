@@ -43,3 +43,8 @@ unit-test:
 ## Run all the unit tests
 test-all:
 	$(call execute_in_env, PYTHONPATH=${PYTHONPATH} pytest -v)
+
+
+## run app 
+run-app:
+	$(call execute_in_env, Flask run --debug -p 4999)

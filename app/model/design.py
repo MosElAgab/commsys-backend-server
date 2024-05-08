@@ -10,20 +10,20 @@ class Design(db):
         conn = self.connect()
         cur = conn.cursor()
         cur.execute("SELECT * FROM design;")
-        row = cur.fetchall()
+        design_list = cur.fetchall()
         cur.close()
         conn.close()
-        return jsonify(row)
+        return design_list
 
 
     def get_design_by_id(self, id):
         conn = self.connect()
         cur = conn.cursor()
         cur.execute("SELECT * FROM design WHERE design_id=%s;", (id,))
-        row = cur.fetchall()
+        desing = cur.fetchall()
         cur.close()
         conn.close()
-        return jsonify(row)
+        return desing
     
 
     def add_new_design(self, new_design):
@@ -38,8 +38,8 @@ class Design(db):
                     "(CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, %s, %s, %s)"
                     "RETURNING *;", 
                     (design_name, file_location, file_name))
-        returned = cur.fetchall()
+        added_design = cur.fetchall()
         conn.commit()
         cur.close()
         conn.close()
-        return jsonify(returned)
+        return added_design
