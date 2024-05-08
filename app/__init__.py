@@ -1,7 +1,8 @@
 import os
 from flask import Flask
 from flask_restful import Api
-from app.models import Design
+from app.model import Design
+from app.routes import design_bp
 
 
 # initiate
@@ -22,7 +23,6 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
-    api = Api(app)
-    # resources
-    api.add_resource(Design, '/design', '/design/<int:id>')
+
+    app.register_blueprint(design_bp, url_prefix='/design')
     return app
