@@ -1,8 +1,6 @@
 import os
 from flask import Flask
-from flask_restful import Api
-from app.model import Design
-from app.routes import design_bp
+from app.blueprint import design_bp
 
 
 # initiate
@@ -17,7 +15,7 @@ def create_app(test_config=None):
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
-    
+
     # ensure the instance folder exists
     try:
         os.makedirs(app.instance_path)

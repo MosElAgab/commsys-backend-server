@@ -48,3 +48,19 @@ test-all:
 ## run app 
 run-app:
 	$(call execute_in_env, Flask run --debug -p 4999)
+
+# run flake8
+run-flake:
+	$(call execute_in_env, flake8 \
+	./app/*.py \
+	./app/model/*.py \
+	./app/db/*.py \
+	./app/controller/*.py \
+	./app/blueprint/*.py \
+	./test/unit_test/*.py)
+
+## set-up database
+setup-db:
+	$(call execute_in_env, psql -f ./db/db-setup.sql)
+## Run all checks
+run-checks: test-all run-flake

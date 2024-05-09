@@ -1,11 +1,10 @@
-from flask import request, jsonify
-from flask_restful import Resource
 from app.db import db
 
 
 class Design(db):
     def __init__(self):
-        super().__init__()  
+        super().__init__()
+
     def fetch_all_design(self):
         conn = self.connect()
         cur = conn.cursor()
@@ -15,7 +14,6 @@ class Design(db):
         conn.close()
         return design_list
 
-
     def get_design_by_id(self, id):
         conn = self.connect()
         cur = conn.cursor()
@@ -24,7 +22,6 @@ class Design(db):
         cur.close()
         conn.close()
         return desing[0]
-    
 
     def add_new_design(self, new_design):
         design_name = new_design['design_name']
@@ -36,7 +33,7 @@ class Design(db):
                     "(created_at, last_updated, design_name, file_location, file_name) "
                     "VALUES"
                     "(CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, %s, %s, %s)"
-                    "RETURNING *;", 
+                    "RETURNING *;",
                     (design_name, file_location, file_name))
         added_design = cur.fetchall()
         conn.commit()

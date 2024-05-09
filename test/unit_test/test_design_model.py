@@ -2,6 +2,7 @@ import pytest
 from app.model import Design
 from app.db import db
 
+
 @pytest.fixture(scope='function')
 def seed_db_for_testing():
     database = db()
@@ -12,7 +13,7 @@ def test_fetch_all_design_method(seed_db_for_testing):
     """
     GIVEN a design model
     WHEN fetch_all_design method is called
-    THEN check 
+    THEN check
     - it returns a list of tuples,
     - it returns all 5 designs,
     - it retruns all 6 columns
@@ -31,7 +32,7 @@ def test_get_design_by_id(seed_db_for_testing):
     """
     GIVEN a design model
     WHEN get_design_by_id method is called
-    THEN check 
+    THEN check
     - it returns a tuple
     - it retruns the correct data.
     """
@@ -41,7 +42,7 @@ def test_get_design_by_id(seed_db_for_testing):
     assert desing[0] == 1
     desing = model.get_design_by_id(2)
     assert isinstance(desing, tuple)
-    assert desing[0]== 2
+    assert desing[0] == 2
     desing = model.get_design_by_id(5)
     assert isinstance(desing, tuple)
     assert desing[0] == 5
