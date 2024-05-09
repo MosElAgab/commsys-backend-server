@@ -6,7 +6,8 @@
 DELETE FROM design;
 ALTER SEQUENCE design_design_id_seq RESTART WITH 1;
 
-INSERT INTO design (created_at, last_updated, design_name, file_location, file_name)
+INSERT INTO design
+    (created_at, last_updated, design_name, file_location, file_name)
 VALUES
     ('2024-05-01 12:00:00', '2024-05-01 12:00:00', 'apple0001', '/design/apple', 'apple0001.csv'),
     ('2024-05-02 12:00:00', '2024-05-02 12:00:00', 'apple0002', '/design/apple', 'apple0002.csv'),
@@ -14,5 +15,22 @@ VALUES
     ('2024-05-04 12:00:00', '2024-05-04 12:00:00', 'apple0004', '/design/apple', 'apple0004.csv'),
     ('2024-05-05 12:00:00', '2024-05-05 12:00:00', 'apple0005', '/design/apple', 'apple0005.csv');
 
-
 SELECT * FROM design;
+
+
+-- address
+
+DELETE FROM address;
+ALTER SEQUENCE address_address_id_seq RESTART WITH 1;
+
+INSERT INTO address
+    (first_line, second_line, district, city, postal_code, country, phone)
+Values
+    ('33 London Rd', 'South London', NULL, 'London', 'LN6 1BS', 'United Kingdom', '01214356900'),
+    ('20 Manchester Rd', 'South Liverpool', NULL, 'Liverpool', 'L3 1WS', 'United Kingdom', '01314356911'),
+    ('101 King Rd', 'South Manchester', NULL, 'Manchester', 'M23 1FB', 'United Kingdom', '01614356900'),
+    ('1 Queens Rd', 'Northh London', NULL, 'London', 'L8 4SZ', 'United Kingdom', '04214356944'),
+    ('648 Princess Rd', 'East Leicester', NULL, 'Leicester', 'LE1 1AA', 'United Kingdom', '01714356955');
+
+
+SELECT * FROM address;
