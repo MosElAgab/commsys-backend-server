@@ -1,6 +1,7 @@
 -- \c test_commsys
 
 -- delete data
+DELETE FROm counterparty;
 DELETE FROM staff;
 DELETE FROM department;
 DELETE FROM currency;
@@ -14,13 +15,13 @@ DELETE FROM design;
 ALTER SEQUENCE design_design_id_seq RESTART WITH 1;
 
 INSERT INTO design
-    (created_at, last_updated, design_name, file_location, file_name)
+    (design_name, file_location, file_name)
 VALUES
-    ('2024-05-01 12:00:00', '2024-05-01 12:00:00', 'apple0001', '/design/apple', 'apple0001.csv'),
-    ('2024-05-02 12:00:00', '2024-05-02 12:00:00', 'apple0002', '/design/apple', 'apple0002.csv'),
-    ('2024-05-03 12:00:00', '2024-05-03 12:00:00', 'apple0003', '/design/apple', 'apple0003.csv'),
-    ('2024-05-04 12:00:00', '2024-05-04 12:00:00', 'apple0004', '/design/apple', 'apple0004.csv'),
-    ('2024-05-05 12:00:00', '2024-05-05 12:00:00', 'apple0005', '/design/apple', 'apple0005.csv');
+    ('apple0001', '/design/apple', 'apple0001.csv'),
+    ('apple0002', '/design/apple', 'apple0002.csv'),
+    ('apple0003', '/design/apple', 'apple0003.csv'),
+    ('apple0004', '/design/apple', 'apple0004.csv'),
+    ('apple0005', '/design/apple', 'apple0005.csv');
 
 SELECT * FROM design;
 
@@ -94,7 +95,6 @@ SELECT * FROM department;
 
 -- staff
 
--- DELETE FROM staff;
 ALTER SEQUENCE staff_staff_id_seq RESTART WITH 1;
 
 INSERT INTO staff
@@ -105,6 +105,22 @@ Values
     ('Ahmed', 'Mokhtar', 4, 'ahmed.mokhtar@commsys.com'),
     ('Jhon', 'Stones', 1, 'jhon.stones@commsys.com'),
     ('Mike', 'Tyson', 5, 'mike.tyson@commsys.com');
+
+
+SELECT * FROM staff;
+
+-- counterparty
+
+ALTER SEQUENCE counterparty_counterparty_id_seq RESTART WITH 1;
+
+INSERT INTO counterparty
+    (counterparty_legal_name, legal_address_id, commercial_contact, delivery_contact)
+Values
+    ('OpSec', 3, 'Alex Becker', 'Orcal Del'),
+    ('Firwa N LTD', 1, 'Mario Butter', 'Panda'),
+    ('Utorrent', 2, 'Donner kebabs', 'Mercury'),
+    ('Zooma', 3, 'Spring Water', 'Tea Cup'),
+    ('KeyBoard group', 5, 'Init alppy', 'BiggarPic');
 
 
 SELECT * FROM staff;
