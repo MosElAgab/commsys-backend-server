@@ -5,8 +5,7 @@ class Address(db):
     def __init__(self):
         super().__init__()
 
-    def fetch_all_address(self):
-        pass
+    def fetch_all_address(self) -> list:
         conn = self.connect()
         cur = conn.cursor()
         cur.execute("SELECT * FROM address;")
@@ -15,7 +14,7 @@ class Address(db):
         conn.close()
         return address_list
 
-    def get_address_by_id(self, id):
+    def get_address_by_id(self, id: int) -> list:
         conn = self.connect()
         cur = conn.cursor()
         cur.execute("SELECT * FROM address WHERE address_id=%s;", (id,))
@@ -24,8 +23,7 @@ class Address(db):
         conn.close()
         return address[0]
 
-    def add_new_address(self, new_address):
-        pass
+    def add_new_address(self, new_address: dict) -> tuple:
         first_line = new_address['first_line']
         second_line = new_address['second_line']
         district = new_address['district']

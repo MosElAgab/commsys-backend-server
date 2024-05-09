@@ -34,3 +34,21 @@ Values
 
 
 SELECT * FROM address;
+
+
+-- address
+
+DELETE FROM payment_type;
+ALTER SEQUENCE payment_type_payment_type_id_seq RESTART WITH 1;
+
+INSERT INTO payment_type
+    (payment_type_name)
+Values
+    ('Debit Card'),
+    ('Cash'),
+    ('Credit Card'),
+    ('Online'),
+    ('Bitcoin');
+
+
+SELECT * FROM payment_type;
