@@ -37,15 +37,15 @@ def test_get_design_by_id(seed_db_for_testing):
     - it retruns the correct data.
     """
     model = Design()
-    desing = model.get_design_by_id(1)
-    assert isinstance(desing, tuple)
-    assert desing[0] == 1
-    desing = model.get_design_by_id(2)
-    assert isinstance(desing, tuple)
-    assert desing[0] == 2
-    desing = model.get_design_by_id(5)
-    assert isinstance(desing, tuple)
-    assert desing[0] == 5
+    design = model.get_design_by_id(1)
+    assert isinstance(design, tuple)
+    assert design[0] == 1
+    design = model.get_design_by_id(2)
+    assert isinstance(design, tuple)
+    assert design[0] == 2
+    design = model.get_design_by_id(5)
+    assert isinstance(design, tuple)
+    assert design[0] == 5
 
 
 def test_add_new_design(seed_db_for_testing):
@@ -54,7 +54,7 @@ def test_add_new_design(seed_db_for_testing):
     WHEN get_design_by_id method is called
     THEN check
     - it returns a tuple of the added design,
-    - it assigns the correct desing_id,
+    - it assigns the correct design_id,
     - it commits the change to database
     """
     new_design = {
@@ -63,9 +63,9 @@ def test_add_new_design(seed_db_for_testing):
         'file_name': 'apple006.csv'
     }
     model = Design()
-    added_desing = model.add_new_design(new_design)
-    added_desing_id = added_desing[0]
-    assert isinstance(added_desing, tuple)
-    assert added_desing_id == 6
+    added_design = model.add_new_design(new_design)
+    added_design_id = added_design[0]
+    assert isinstance(added_design, tuple)
+    assert added_design_id == 6
     design_list = model.fetch_all_design()
     assert len(design_list) == 6

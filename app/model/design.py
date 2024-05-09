@@ -18,10 +18,10 @@ class Design(db):
         conn = self.connect()
         cur = conn.cursor()
         cur.execute("SELECT * FROM design WHERE design_id=%s;", (id,))
-        desing = cur.fetchall()
+        design = cur.fetchall()
         cur.close()
         conn.close()
-        return desing[0]
+        return design[0]
 
     def add_new_design(self, new_design):
         design_name = new_design['design_name']
