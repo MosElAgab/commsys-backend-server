@@ -32,7 +32,6 @@ class Department(db):
         cur.execute("INSERT INTO department "
                     "(department_name, location, manager) "
                     "VALUES"
-                    ""
                     "(%s, %s, %s)"
                     "RETURNING *;",
                     (department_name, location, manager))

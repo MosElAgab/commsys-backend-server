@@ -1,9 +1,16 @@
 -- \c test_commsys
 
+-- delete data
+DELETE FROM staff;
+DELETE FROM department;
+DELETE FROM currency;
+DELETE FROM payment_type;
+DELETE FROM address;
+DELETE FROM design;
+
 
 -- design
 
-DELETE FROM design;
 ALTER SEQUENCE design_design_id_seq RESTART WITH 1;
 
 INSERT INTO design
@@ -20,7 +27,6 @@ SELECT * FROM design;
 
 -- address
 
-DELETE FROM address;
 ALTER SEQUENCE address_address_id_seq RESTART WITH 1;
 
 INSERT INTO address
@@ -37,7 +43,6 @@ SELECT * FROM address;
 
 -- payment_type
 
-DELETE FROM payment_type;
 ALTER SEQUENCE payment_type_payment_type_id_seq RESTART WITH 1;
 
 INSERT INTO payment_type
@@ -54,7 +59,6 @@ SELECT * FROM payment_type;
 
 -- currency
 
-DELETE FROM currency;
 ALTER SEQUENCE currency_currency_id_seq RESTART WITH 1;
 
 INSERT INTO currency
@@ -72,8 +76,8 @@ SELECT * FROM currency;
 
 -- department
 
-DELETE FROM department;
 ALTER SEQUENCE department_department_id_seq RESTART WITH 1;
+
 
 INSERT INTO department
     (department_name, location, manager)
@@ -86,3 +90,21 @@ Values
 
 
 SELECT * FROM department;
+
+
+-- staff
+
+-- DELETE FROM staff;
+ALTER SEQUENCE staff_staff_id_seq RESTART WITH 1;
+
+INSERT INTO staff
+    (first_name, last_name, department_id, email_address)
+Values
+    ('Alex', 'Jones', 3, 'alex.jones@commsys.com'),
+    ('Ali', 'Alias', 1, 'ali.alias@commsys.com'),
+    ('Ahmed', 'Mokhtar', 4, 'ahmed.mokhtar@commsys.com'),
+    ('Jhon', 'Stones', 1, 'jhon.stones@commsys.com'),
+    ('Mike', 'Tyson', 5, 'mike.tyson@commsys.com');
+
+
+SELECT * FROM staff;
