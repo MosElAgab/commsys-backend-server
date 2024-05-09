@@ -32,11 +32,10 @@ Values
     ('1 Queens Rd', 'Northh London', NULL, 'London', 'L8 4SZ', 'United Kingdom', '04214356944'),
     ('648 Princess Rd', 'East Leicester', NULL, 'Leicester', 'LE1 1AA', 'United Kingdom', '01714356955');
 
-
 SELECT * FROM address;
 
 
--- address
+-- payment_type
 
 DELETE FROM payment_type;
 ALTER SEQUENCE payment_type_payment_type_id_seq RESTART WITH 1;
@@ -50,5 +49,22 @@ Values
     ('Online'),
     ('Bitcoin');
 
-
 SELECT * FROM payment_type;
+
+
+-- currency
+
+DELETE FROM currency;
+ALTER SEQUENCE currency_currency_id_seq RESTART WITH 1;
+
+INSERT INTO currency
+    (currency_code)
+Values
+    ('USD'),
+    ('GBP'),
+    ('BTC'),
+    ('EUR'),
+    ('SOL');
+
+
+SELECT * FROM currency;

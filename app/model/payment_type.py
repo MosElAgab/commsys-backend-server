@@ -23,7 +23,7 @@ class PaymentType(db):
         conn.close()
         return payment_type[0]
 
-    def add_new_payment_type(self, new_payment_type):
+    def add_new_payment_type(self, new_payment_type: dict) -> tuple:
         payment_type_name = new_payment_type['payment_type_name']
         conn = self.connect()
         cur = conn.cursor()
