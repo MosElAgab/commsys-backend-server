@@ -68,3 +68,21 @@ Values
 
 
 SELECT * FROM currency;
+
+
+-- department
+
+DELETE FROM department;
+ALTER SEQUENCE department_department_id_seq RESTART WITH 1;
+
+INSERT INTO department
+    (department_name, location, manager)
+Values
+    ('Human Resources', 'Manchester', 'Alex'),
+    ('IT', 'London', 'Ali'),
+    ('Finance', 'Leicester', 'Ahmed'),
+    ('Marketing', 'Liverpool', 'Jhon'),
+    ('Production', 'Manchester', 'Mike');
+
+
+SELECT * FROM department;
