@@ -109,9 +109,9 @@ CREATE TABLE purchase_order (
 	item_quantity INT NOT NULL,
 	item_unit_price FLOAT8 NOT NULL,
 	currency_id INT REFERENCES currency(currency_id),
-	aggreed_delivery_date VARCHAR(40) NOT NULL,
-	aggreed_payment_date VARCHAR(40) NOT NULL,
-	aggreed_delivery_location_id INT REFERENCES address(address_id)
+	agreed_delivery_date VARCHAR(40) NOT NULL,
+	agreed_payment_date VARCHAR(40) NOT NULL,
+	agreed_delivery_location_id INT REFERENCES address(address_id)
 )
 ;
 SELECT * FROM purchase_order;
@@ -128,9 +128,9 @@ CREATE TABLE sales_order (
 	unit_sold INT NOT NULL,
 	unit_price FLOAT8 NOT NULL,
 	currency_id INT REFERENCES currency(currency_id),
-	aggreed_delivery_date VARCHAR(40) NOT NULL,
-	aggreed_payment_date VARCHAR(40) NOT NULL,
-	aggreed_delivery_location_id INT REFERENCES address(address_id)
+	agreed_delivery_date VARCHAR(40) NOT NULL,
+	agreed_payment_date VARCHAR(40) NOT NULL,
+	agreed_delivery_location_id INT REFERENCES address(address_id)
 )
 ;
 SELECT * FROM sales_order;

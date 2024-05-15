@@ -1,7 +1,8 @@
 -- \c test_commsys
 
 -- delete data
-DELETE FROm counterparty;
+DELETE FROM purchase_order;
+DELETE FROM counterparty;
 DELETE FROM staff;
 DELETE FROM department;
 DELETE FROM currency;
@@ -124,3 +125,21 @@ Values
 
 
 SELECT * FROM staff;
+
+
+-- purchase_order
+
+ALTER SEQUENCE purchase_order_purchase_order_id_seq RESTART WITH 1;
+
+INSERT INTO purchase_order
+    (staff_id, counterparty_id, item_code, item_quantity, item_unit_price, currency_id, 
+    agreed_delivery_date, agreed_payment_date, agreed_delivery_location_id)
+Values
+    (2, 3, 'ABC123', 200, 20, 1, '2024-06-22', '2024-06-15', 3),
+    (1, 5, 'ABD445', 450, 0.3, 4, '2024-07-01', '2024-06-02', 4),
+    (4, 4, 'SNT847', 15, 3000, 2, '2025-01-01', '2024-09-15', 1),
+    (2, 1, 'SXT129', 3, 1400, 5, '2024-08-01', '2024-07-15', 3),
+    (3, 2, 'HRX942', 77, 329, 1, '2024-07-01', '2024-08-15', 3);
+
+
+SELECT * FROM purchase_order;
