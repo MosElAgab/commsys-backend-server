@@ -9,14 +9,14 @@ def seed_db_for_testing():
     database.seed_test_db()
 
 
-def test_fetch_all_staff_method(seed_db_for_testing):
+def test_fetch_all_staff(seed_db_for_testing):
     """
     GIVEN a staff mode
     WHEN fetch_all_staff method is called
     THEN check
     - it returns a list of tuples,
-    - it returns all 5 staffes,
-    - it retruns all 10 columns
+    - it returns all 5 staff,
+    - it retruns all 7 columns
     """
     model = Staff()
     staff_list = model.fetch_all_staff()
